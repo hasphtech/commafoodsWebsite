@@ -6,28 +6,24 @@ const heroProducts = [
     sub: "Extra long grain",
     bg: "bg-[#F9F0E4]",
     border: "border-[#E8D0B0]",
-    imgColor: "bg-[#DDB870]",
   },
   {
     name: "Chakki Atta",
     sub: "100% whole wheat",
     bg: "bg-[#FFF4F4]",
     border: "border-[#F0C0B0]",
-    imgColor: "bg-[#E0A080]",
   },
   {
     name: "Turmeric Powder",
     sub: "Pure & natural",
     bg: "bg-[#F4F9ED]",
     border: "border-[#C0D8A0]",
-    imgColor: "bg-[#98C060]",
   },
   {
     name: "Pure Jaggery",
     sub: "Chemical free",
     bg: "bg-[#FFFAEC]",
     border: "border-[#E8D890]",
-    imgColor: "bg-[#D0A830]",
   },
 ];
 
@@ -36,6 +32,7 @@ export default function Hero() {
     <section className="bg-white py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
+
           {/* Left: copy */}
           <div className="flex-1">
             <p className="label-caps text-comma-amber mb-5">
@@ -66,7 +63,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: 2×2 product preview tiles */}
+          {/* Right: 2×2 product preview tiles with real logo */}
           <div className="flex-1 w-full">
             <div className="grid grid-cols-2 gap-3">
               {heroProducts.map((p) => (
@@ -74,11 +71,14 @@ export default function Hero() {
                   key={p.name}
                   className={`${p.bg} border ${p.border} rounded-xl p-5 flex flex-col items-center text-center`}
                 >
-                  {/* Package shape placeholder */}
-                  <div
-                    className={`${p.imgColor} w-11 h-16 rounded-t-sm rounded-b-xl mb-3 flex items-center justify-center`}
-                  >
-                    <div className="w-5 h-5 rounded-full bg-comma-red opacity-80" />
+                  <div className="bg-white rounded-xl w-16 h-16 flex items-center justify-center mb-3 border border-gray-100">
+                    <Image
+                      src="/images/logo.png"
+                      alt="Comma Foods"
+                      width={40}
+                      height={44}
+                      className="object-contain"
+                    />
                   </div>
                   <p className="text-sm font-medium text-gray-800">{p.name}</p>
                   <p className="text-xs text-gray-400 mt-0.5">{p.sub}</p>
@@ -88,7 +88,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Products lineup image */}
+        {/* Full product lineup image */}
         <div className="mt-14 rounded-2xl overflow-hidden border border-gray-100">
           <Image
             src="/images/products-lineup.png"

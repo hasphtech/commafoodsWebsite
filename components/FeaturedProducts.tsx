@@ -1,59 +1,53 @@
+import Image from "next/image";
+
 const products = [
   {
     category: "Rice & grains",
     name: "Basmati Rice",
     desc: "Extra long grain · 5kg",
     cardBg: "bg-[#F9F0E4]",
-    pkgColor: "bg-[#DDB870]",
   },
   {
     category: "Atta & flour",
     name: "Chakki Fresh Atta",
     desc: "100% whole wheat · 5kg",
     cardBg: "bg-[#FFF4F4]",
-    pkgColor: "bg-[#E0A080]",
   },
   {
     category: "Atta & flour",
     name: "Whole Wheat Atta",
     desc: "100% MP Sharbati · 5kg",
     cardBg: "bg-[#FFF8F4]",
-    pkgColor: "bg-[#C89070]",
   },
   {
     category: "Natural & pure",
     name: "Pure Jaggery",
     desc: "Chemical free · 1kg",
     cardBg: "bg-[#FFFAEC]",
-    pkgColor: "bg-[#D0A830]",
   },
   {
     category: "Spices & masalas",
     name: "Turmeric Powder",
     desc: "Pure & natural · 200g",
     cardBg: "bg-[#F4F9ED]",
-    pkgColor: "bg-[#98C060]",
   },
   {
     category: "Spices & masalas",
     name: "Red Chilli Powder",
     desc: "Pure & natural · 200g",
     cardBg: "bg-[#FFF2F2]",
-    pkgColor: "bg-[#E05040]",
   },
   {
     category: "Beverages",
     name: "Premium Tea",
     desc: "Strong & refreshing · 250g",
     cardBg: "bg-[#EAF3DE]",
-    pkgColor: "bg-[#6A9A40]",
   },
   {
     category: "Snacks",
     name: "Masala Munch",
     desc: "Crispy & tasty",
     cardBg: "bg-[#FFFAEC]",
-    pkgColor: "bg-[#E8A030]",
   },
 ];
 
@@ -61,6 +55,7 @@ export default function FeaturedProducts() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+
         {/* Header row */}
         <div className="flex items-end justify-between mb-9">
           <div>
@@ -82,16 +77,20 @@ export default function FeaturedProducts() {
           {products.map((p) => (
             <div
               key={p.name}
-              className="border border-gray-100 rounded-xl overflow-hidden hover:border-comma-red/30 transition-colors group"
+              className="border border-gray-100 rounded-xl overflow-hidden hover:border-comma-red/30 transition-colors"
             >
-              {/* Image area */}
+              {/* Image area: coloured bg + real logo centred */}
               <div
-                className={`${p.cardBg} h-28 flex items-center justify-center`}
+                className={`${p.cardBg} h-32 flex items-center justify-center`}
               >
-                <div
-                  className={`${p.pkgColor} w-12 h-16 rounded-t-sm rounded-b-2xl flex items-center justify-center`}
-                >
-                  <div className="w-5 h-5 rounded-full bg-comma-red opacity-70" />
+                <div className="bg-white rounded-2xl w-20 h-20 flex items-center justify-center border border-gray-100">
+                  <Image
+                    src="/images/logo.png"
+                    alt={`Comma Foods — ${p.name}`}
+                    width={48}
+                    height={52}
+                    className="object-contain"
+                  />
                 </div>
               </div>
 
