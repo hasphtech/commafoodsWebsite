@@ -6,24 +6,28 @@ const heroProducts = [
     sub: "Extra long grain",
     bg: "bg-[#F9F0E4]",
     border: "border-[#E8D0B0]",
+    img: "/images/products/basmati-rice.png",
   },
   {
     name: "Chakki Atta",
     sub: "100% whole wheat",
     bg: "bg-[#FFF4F4]",
     border: "border-[#F0C0B0]",
+    img: "/images/products/chakki-fresh-atta.png",
   },
   {
     name: "Turmeric Powder",
     sub: "Pure & natural",
     bg: "bg-[#F4F9ED]",
     border: "border-[#C0D8A0]",
+    img: "/images/products/turmeric-powder.png",
   },
   {
     name: "Pure Jaggery",
     sub: "Chemical free",
     bg: "bg-[#FFFAEC]",
     border: "border-[#E8D890]",
+    img: "/images/products/jaggery.png",
   },
 ];
 
@@ -63,21 +67,21 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: 2×2 product preview tiles with real logo */}
+          {/* Right: 2×2 product preview tiles */}
           <div className="flex-1 w-full">
             <div className="grid grid-cols-2 gap-3">
               {heroProducts.map((p) => (
                 <div
                   key={p.name}
-                  className={`${p.bg} border ${p.border} rounded-xl p-5 flex flex-col items-center text-center`}
+                  className={`${p.bg} border ${p.border} rounded-xl p-4 flex flex-col items-center text-center`}
                 >
-                  <div className="bg-white rounded-xl w-16 h-16 flex items-center justify-center mb-3 border border-gray-100">
+                  <div className="relative w-full h-36 mb-3">
                     <Image
-                      src="/images/logo.png"
-                      alt="Comma Foods"
-                      width={40}
-                      height={44}
+                      src={p.img}
+                      alt={p.name}
+                      fill
                       className="object-contain"
+                      sizes="(max-width: 768px) 40vw, 20vw"
                     />
                   </div>
                   <p className="text-sm font-medium text-gray-800">{p.name}</p>
